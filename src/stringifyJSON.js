@@ -4,33 +4,9 @@
 // but you don't so you're going to write it from scratch:
 
 var stringifyJSON = function(obj) {
-  // your code goes here
-
-  // functions and undefined: {}
-  // number: 3
-  // strings: "string"
-  // boolean: true
-  // arrays: '[2, 3]'
-  // objects: '{"string":3}'
-
-  // make result variable
-  // if string result += string
-  // if number result += number
-  // if boolean result += boolean
-  // if array:
-  //   write '['
-  //   iterate through array and pass into stringifyJSON
-  //   write ']'
-  // if object:
-  //   write '{'
-  //   iterate through object and pass into stringifyJSON
-  //   write '}'
-  // if function or undefined return {}
-
-  // return result
 };
 
-
+// Edgar's Pseudocode
 // make a result variable
 // check if obj is a primitve value
 //    result is = obj
@@ -45,3 +21,30 @@ var stringifyJSON = function(obj) {
 //    invoke stringify on the values of each key
 //    result += '"' + key + ':' + stringifyJSON(value) + ','
 //    when finished looping result += '}'
+
+// Praneeth's Pseudocode
+// create result string
+// if (type===number)
+//    result += number.toString (do we need to toString?)
+// if (type === boolean)
+//    result += boolean
+// if (type === string)
+//    result += '"' + string + '"' (single or double quotes??)
+// if (Array.isArray(obj))
+//    result += '['
+//    objLength = result.length //store length to determine if last
+//    for i=0, i<objLength; i++
+//      result += stringifyJSON(obj[objLength])
+//      if i !== length
+//          result += ',' //add comma if not last
+//    result += ']'
+// if (type === object)
+//    var lastObject = Object.keys(obj)[Object.keys(obj).length - 1] // store lastObject as a variable
+//    result += '{'
+//    for var key in obj
+//        result += stringifyJSON(key) // does this need to be stringified?
+//        result += stringifyJSON(obj[key]) // stringify the value
+//    result += '}'
+// if (type === function or type === undefined)
+//    return undefined
+// return result
